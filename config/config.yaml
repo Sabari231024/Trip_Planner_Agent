@@ -1,0 +1,4 @@
+llm:
+  groq:
+    provider: "groq"
+    model_name: "qwen/qwen3-32b"
