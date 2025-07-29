@@ -599,6 +599,15 @@ wheels = [
 ]
 
 [[package]]
+name = "googlemaps"
+version = "4.10.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/fe/26/bca4d737a9acea25e94c19940a780bbf0be64a691f7caf3a68467d3a5838/googlemaps-4.10.0.tar.gz", hash = "sha256:3055fcbb1aa262a9159b589b5e6af762b10e80634ae11c59495bd44867e47d88", size = 33056, upload-time = "2023-01-26T16:45:02.501Z" }
+
+[[package]]
 name = "greenlet"
 version = "3.2.3"
 source = { registry = "https://pypi.org/simple" }
@@ -1008,6 +1017,11 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/5d/45/6c375b55e1775a4764d1535e1239205604c8396fd2c4eb10333a7357ec2e/langchain_google_community-2.0.7.tar.gz", hash = "sha256:ca73dade3bcc141bca38a3753c32d68325f45a3bccf1588d17ef84fe049f63aa", size = 71929, upload-time = "2025-02-26T10:31:33.894Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/45/43/1a55d44baa276bac62e1b244d8888467f9b13cc4a00fc7521d2c398d3ba6/langchain_google_community-2.0.7-py3-none-any.whl", hash = "sha256:4502d63a1d1ce39f4a34cf7974c87700a40e00c15dbe15b7970b2708c5d9ca1f", size = 99582, upload-time = "2025-02-26T10:31:32.083Z" },
+]
+
+[package.optional-dependencies]
+places = [
+    { name = "googlemaps" },
 ]
 
 [[package]]
@@ -2235,9 +2249,10 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },
+    { name = "googlemaps" },
     { name = "ipykernel" },
     { name = "langchain" },
-    { name = "langchain-google-community" },
+    { name = "langchain-google-community", extra = ["places"] },
     { name = "langchain-groq" },
     { name = "langchain-tavily" },
     { name = "langgraph" },
@@ -2249,9 +2264,10 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi", specifier = ">=0.116.1" },
+    { name = "googlemaps", specifier = ">=4.10.0" },
     { name = "ipykernel", specifier = ">=6.30.0" },
     { name = "langchain", specifier = ">=0.3.27" },
-    { name = "langchain-google-community", specifier = ">=2.0.7" },
+    { name = "langchain-google-community", extras = ["places"], specifier = ">=2.0.7" },
     { name = "langchain-groq", specifier = ">=0.3.6" },
     { name = "langchain-tavily", specifier = ">=0.2.11" },
     { name = "langgraph", specifier = ">=0.6.0" },
